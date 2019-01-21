@@ -39,9 +39,9 @@ echo "Checking git for clean work tree"
 require_clean_work_tree
 
 echo "Updating version file"
-echo "Deployed on: $DATE" > www/version.info
+echo "Deployed on: $DATE" > www/version.txt
 
-#aws s3 cp www s3://senders-io/ --recursive
+aws s3 cp www s3://senders-io/ --recursive
 echo "Deployed!"
 
 echo "Committing deploy"
