@@ -1,0 +1,18 @@
+html,body { margin: 0; font-family: monospace; }
+#header {
+        background-color: #060606;
+        color: #67ff79;
+        border-bottom: 4px solid #23ed9b;
+        line-height: 2em;
+        margin: 0;
+        padding: 8px 10%;
+}
+#header > nav { display: inline-block; float: right; }
+#header > nav > a:link { color: #81b7ff }
+#header > nav > a:visited { color: #cd78f4; }
+#header > nav > a:focus, #header > nav > a:active, #header > nav > a:hover { color: #6005dd; }
+#header > .title { display: inline-block; font-size: 1.5em; }
+#body { margin: 16px 10%; }
+#body article { border-bottom: 1px solid #060606; }
+#body article:last { border-bottom: none; }
+
