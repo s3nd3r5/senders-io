@@ -34,6 +34,7 @@ require_clean_work_tree () {
 #     MAIN METHOD     #
 ##                   ##
 DATE=$(date -u -Iseconds)
+DATE_TAG=$(date -u +%Y.%m.%dT%H.%M.%SZ)
 
 echo "Checking git for clean work tree"
 require_clean_work_tree
@@ -46,6 +47,6 @@ echo "Deployed!"
 
 echo "Committing deploy"
 git commit -am "Deployed: $DATE"
-git tag -a $DATE -m "Deployed to s3 on $DATE"
+git tag -a $DATE_TAG -m "Deployed to s3 on $DATE"
 echo "Done!"
 
