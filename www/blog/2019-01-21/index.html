@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.6.0">
+  <title>senders.io - Homepage</title>
+  <link rel='stylesheet' type='text/css' href='/index.css'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body id='blog'>
+  <div id='header'>
+    <a class='title' href='/'>senders.io</a>
+    <nav>
+      <a href="/resume">Resume</a> <a href="/blog">Blog</a> <a href=
+      "https://github.com/s3nd3r5">Github</a>
+    </nav>
+  </div>
+  <div id='body'>
+    <article>
+      <h2>First! A New Years Resolution</h2>
+      <p>I like to write small hacky things from time to time when I have a
+      weekend to myself, or a day, or an hour... But I never had a place to put
+      them or the push to complete them beyond their initial hack. So I decided
+      I should write a blog about it.</p>
+      <p>Also for work I had to write some prose about myself, something beyond
+      a technical document or RFC and I realized I am shit at writing my
+      thoughts outside of a very direct specific technical way.</p>
+      <p>I am not sure if it is the age of the internet I grew up in where most
+      of my written communication was informal or for school. But my personal
+      writing skills are trash and this is my attempt to kill all the birds
+      with one stone</p>
+      <h3>What can be expected here</h3>
+      <p>My intentions for this site beyond just a landing page with my resume,
+      I hope to upload some code-snippets from things I found interesting,
+      ideally some recordings, drawings, and model-painting.</p>
+      <h3>How often do I intend to update this blog</h3>
+      <p>Ideally, whenever I have something that I feel is worth sharing. But
+      for the sake of my resolution I want to do at least one post a month, and
+      if I am keeping my other resolutions I should have content to put
+      here</p>
+      <h3>Designing my site</h3>
+      <p>Designing this blog actually took way more time than it should have.
+      It began when I wanted to tackle a <i>javascriptless</i> website. And I
+      found that a bit difficult if I wanted to have code with syntax
+      highlighting. So I wrote a python script to generate <code class=
+      'inline'>&lt;pre&gt;</code> tag wrapping Java code with partial syntax
+      highlighting.Possibly mistaking <code class='inline'>highlight.js</code>
+      usage documentation. But I would like to prevent having javascript on my
+      main website keeping it as simplistic as possible.</p>
+      <p>I test the site using both <code class='inline'>tidy</code> and
+      <code class='inline'>nginx</code> via <code class='inline'>docker</code>.
+      Using tidy I can validate the html (making sure I didn&#39;t miss any
+      tags etc) and tidy up any odd spacing. And then visually test it running
+      nginx. Having it served up similarly to s3 all the paths will work, and
+      is insanely easy to setup! If you&#39;re reading this and have anything
+      beyond a simple html file I recommend running docker + nginx over any
+      javascript server.</p>
+      <p>Then I deploy the site through <code class='inline'>s3-cli</code>
+      Which is simple and to the point.</p>
+      <h3>In Closing</h3>
+      <p>I wanted to include more but I ran out of time today to write more, I
+      will probably update this article with more information (and an updated
+      timestamp). Or just make another post of my code highlighting task.</p>
+    </article>
+    <div id='footer'>
+      <i>January 21, 2019</i>
+    </div>
+  </div>
+</body>
+</html>

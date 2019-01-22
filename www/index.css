@@ -1,4 +1,8 @@
-html,body { margin: 0; font-family: monospace; }
+html,body { margin: 0; font-family: sans-serif; }
+#body { margin: 16px 10%; }
+#body article { border-bottom: 1px solid #060606; }
+#body article:last { border-bottom: none; }
+
 #header {
         background-color: #060606;
         color: #67ff79;
@@ -11,8 +15,25 @@ html,body { margin: 0; font-family: monospace; }
 #header > nav > a:link { color: #81b7ff }
 #header > nav > a:visited { color: #cd78f4; }
 #header > nav > a:focus, #header > nav > a:active, #header > nav > a:hover { color: #6005dd; }
-#header > .title { display: inline-block; font-size: 1.5em; }
-#body { margin: 16px 10%; }
-#body article { border-bottom: 1px solid #060606; }
-#body article:last { border-bottom: none; }
+#header > .title { display: inline-block; font-size: 1.5em; text-decoration: none; }
+#header > a.title:link, 
+  #header > a.title:visited, 
+  #header > a.title:hover,
+  #header > a.title:focus,
+  #header > a.title:active { 
+  color:inherit; text-decoration: none; 
+}
+#footer {
+  font-size: 0.5em;
+  float:right;
+}
 
+code {
+  font-family: monospace;
+  color: #333;
+  font-size:1.1em;
+}
+
+code.inline {
+  display: inline;
+}
