@@ -48,5 +48,8 @@ echo "Deployed!"
 echo "Committing deploy"
 git commit -am "Deployed: $DATE"
 git tag -a $DATE_TAG -m "Deployed to s3 on $DATE"
+
+echo "Pushing to git"
+git push origin master --tags
 echo "Done!"
 
