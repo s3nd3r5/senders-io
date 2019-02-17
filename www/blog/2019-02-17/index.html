@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.6.0">
+  <title>senders.io - Blog</title>
+  <link rel='stylesheet' type='text/css' href='/index.css'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <div id='header'>
+    <a class='title' href='/'>senders.io</a>
+    <nav>
+      <a href="/resume">Resume</a> <a href="/blog">Blog</a> <a href=
+      "https://github.com/s3nd3r5">Github</a>
+    </nav>
+  </div>
+  <div id='body'>
+    <article>
+      <h2>Venturing back into C</h2>
+      <p>For the past two weeks or so I have been diving back into C
+      programming. I&#39;ve found it to be a very fun and refreshing experience
+      coming off of a slog of Java 11 updates at work. I&#39;ve found comfort
+      in its simplicity and frustrations in my &quot;I can do this without an
+      IDE&quot; mindset.</p>
+      <p>I started C programming in College during a 8 AM course of which all I
+      can remember is that it was at 8 AM. I loved programming in C, dealing
+      with memory, pointers, no strings, structs, no strings, linking, no
+      strings. It was a really interesting difference from the web and Java
+      programming I had done previously. Obviously the lack of the
+      &quot;string&quot; type made things interesting and initially a challenge
+      for me back then. In my most recent endevour I found <code class=
+      'inline'>char *</code> to be perfectly suitable for every case I came
+      across. It was usually a separate library that was failing me, not a
+      fixed char array. This was mostly due to the types of programs I was
+      writting in college were text adventures where all of what I did was
+      using strings. And my lack of understanding of what was actually
+      happening in C was really what was causing all the issues.</p>
+      <h3>The Project</h3>
+      <p>I started working on an application I had been meaning to develop
+      called <b>reminder.d</b>. This daemon would monitor for reminder
+      notifications I would send via a CLI. It queue them up based on some time
+      set to send the notification. I ended up writing both the CLI and the
+      daemon in this past week, both in C.</p>
+      <h4>The CLI</h4>
+      <p>The CLI <b>remindme</b> took in messages and appened them to a file.
+      This file would be monitored by the daemon later on. Each reminder
+      consisted of three parts:</p>
+      <ul>
+        <li><i>Message</i> - The body of the notification.</li>
+        <li><i>Time</i> - This is either a datetime or a period for when the
+        notification should send.</li>
+        <li><i>Flag</i> - The Flag was set by the CLI when written to the file,
+        this marks the status of the reminder</li>
+      </ul>After a notification is written the daemon will pick up the
+      notification and notify if the time set is now/past.
+      <h4>The Daemon</h4>
+      <p>The Daemon <b>reminder-daemon</b> opened and tailed a file at
+      <i>/usr/local/etc/reminder.d/$USER.list</i>. It would tail the file
+      monitoring any incoming lines parsing them into reminders. The syntax of
+      the reminder is <code class='inline'>FLAG EPOCHSEC MESSAGE</code> .
+      Tokenizing on spaces it was then added to a linked-list sorted by time.
+      Every second it checks the file for any new lines, adding reminders as
+      they come in, then check the head of the list. If the reminder at the
+      head is ready to be notified the daemon pops it off the list and sends
+      the notification. After a notification is sent successfully the daemon
+      modifies that line in file updating its <code class='inline'>FLAG</code>
+      to &#39;d&#39;. This is so when the daemon starts back up it skips the
+      reminder. Notifications are sent via <i>libnotify</i>: <code class=
+      'inline'>Reminder - $DATETIME</code> with the message body. They are also
+      set to last until dismissed manually, this way if were to walk away, once
+      I sat down I&#39;d see the stale reminder waiting.</p>
+      <h4>Future Plans for Reminder.d</h4>
+      <p>Having a system to create and send myself notifications is incredibly
+      useful but having them limit to just the computer I sent them on makes
+      them a very limited. I have been using them at work for the last few days
+      and its nice to be able to tell myself to remeber to email a person after
+      lunch. But I would like to be able to tell myself things later in the
+      day. I have planned since the beginning to have a remote server I can
+      sync the reminders through. In addition having an application running on
+      my phone that also gets and sets reminders.</p>
+      <p>Remote syncing would change entirely how I deal with reminders in the
+      file.</p>
+      <pre>
+<code>
+ struct remnode { 
+   long fileptr; 
+   struct reminder* reminder; 
+   struct remnode* next; 
+ }; 
+      </code></pre>
+      <p>Is currently the struct I use to keep track of the reminders.
+      <code class='inline'>fileptr</code> is the line of the file where the
+      reminder is, so I can <code class='inline'>fseek</code> back to the
+      location and overwrite its flag. I cannot currently think of a way to
+      keep the files perfectly identical without introducing countless
+      edgecases. What I do think might work is providing some form of UUID.
+      When a remote pull tells the systems daemon that a notification has been
+      cleared it can mark it by ID. Right now the fileptr is effectively its
+      ID, but that will not work anymore. A composite key of the daemons own id
+      (generated at install?) with a new ID of each incoming message would help
+      ensure uniqueness across ID generations across multiple systems.</p>
+      <h3>What I&#39;ve learned</h3>
+      <p>First off, I probably could&#39;ve done this in bash. With
+      <code class='inline'>date notify-send git awk cron</code> and a few other
+      useful commands I could very easily keep track of file changes and push
+      notifications at a certain time. But seeing as I scrap together bash
+      scripts all the time I though C would make things more fun.</p>
+      <p>Writing manpages was the probably the most fun I had working on the
+      project. They have a simple elegance to them, similar to C. That being
+      said you could FEEL the age of the language. Every single decision is
+      there to make things simple to parse. Even compared to modern markup the
+      explicit direct nature of the language made it so easy to learn. Every
+      tag served a specific purpose and each objective I had had a flag to do
+      it.</p>
+      <pre><code>
+.TH REMINDME 1 
+.SH NAME
+ remindme \- Send yourself reminders at a specific time on one or more devices
+.SH SYNOPSIS
+.B remindme
+[\fB\-t\fR \fITIME\fR]
+[\fB\-\-at \fITIME\fR]
+[\fB\-i\fR \fIPERIOD\fR]
+[\fB\-\-in\fR \fIPERIOD\fR]
+        </code>
+      </pre>
+      <p>Libnotify was insanely easy to work with, from a programming
+      perspective.</p>
+      <pre><code>
+  NotifyNotification *notif = notify_notification_new(title, rem-&gt;message, &quot;info&quot;);
+  notify_notification_set_app_name(notif, APP_NAME);
+  notify_notification_set_timeout(notif, NOTIFY_EXPIRES_NEVER);
+
+  GError* error = NULL;
+  gboolean shown = notify_notification_show(notif, &amp;error);
+        </code>
+      </pre>
+      <h3>In closing</h3>
+      <p>Overall, this was an extremely fun first week of engineering. I look
+      forward to what I am able to do syncing and sending notifications on
+      android.</p>
+    </article>
+    <div id='footer'>
+      <i>February 17, 2019</i>
+    </div>
+  </div>
+</body>
+</html>

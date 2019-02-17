@@ -30,10 +30,12 @@ html,body { margin: 0; font-family: monospace; }
 
 code {
   font-family: monospace;
-  background: #eee;
-  padding: 2px 2px;
+  background-color: #eee;
+  padding: 4px 4px;
   border-radius: 5px 5px;
+  display: inline-block;
 }
 code.inline {
   display: inline;
+  padding: 2px 2px;
 }
