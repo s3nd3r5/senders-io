@@ -39,3 +39,7 @@ code.inline {
   display: inline;
   padding: 2px 2px;
 }
+
+#wishlist { margin: 2% }
+#wishlist table thead td { border-bottom: 1px solid #aaa }
+#wishlist table tbody td { border-bottom: 2px dotted #aaa }
