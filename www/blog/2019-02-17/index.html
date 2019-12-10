@@ -42,11 +42,17 @@
       would monitor for reminder notifications I would send via a CLI. It queue
       them up based on some time set to send the notification. I ended up
       writing both the CLI and the daemon in this past week, both in C.</p>
-      <h4> The Beginning </h4>
-      <p>
-        This project started with an outline (as a README) which I think was the reason this ended up as an actually successful project. 
-        I had been thinking about this for a long time, and had begun using a calendar to keep track of long term reminders/dates etc. First, I outlined the architecture "how would I actually do want to send myself remidners". Since half my day is spent infront of a computer, with a terminal open or at least two keystrokes away, a CLI would do the trick. Then how do I actually send myself notifications... writing them down. So I can use the CLI to write to a file and have a daemon pick up the changes and notify me once it hits the desired time posted.
-      </p>
+      <h4>The Beginning</h4>
+      <p>This project started with an outline (as a README) which I think was
+      the reason this ended up as an actually successful project. I had been
+      thinking about this for a long time, and had begun using a calendar to
+      keep track of long term reminders/dates etc. First, I outlined the
+      architecture &quot;how would I actually do want to send myself
+      remidners&quot;. Since half my day is spent infront of a computer, with a
+      terminal open or at least two keystrokes away, a CLI would do the trick.
+      Then how do I actually send myself notifications... writing them down. So
+      I can use the CLI to write to a file and have a daemon pick up the
+      changes and notify me once it hits the desired time posted.</p>
       <h4>The CLI</h4>
       <p>The CLI <b>remindme</b> took in messages and appened them to a file.
       This file would be monitored by the daemon later on. Each reminder
@@ -145,9 +151,18 @@
       <p>Overall, this was an extremely fun first week of engineering. I look
       forward to what I am able to do syncing and sending notifications on
       android.</p>
-      <p>
-        For the zero people reading, grab a beer and outline your project. Full through. Think about the how, then write it down. Don't worry about getting in the weeds of how to write a manfile, thats what is fun about programming. I thought I botched my debian/sid environment uninstalling and reinstalling a notification daemon. Infact I think its caused me to take a stance on the whole systemd thing. Either way, start a private repo (they're free now) write a README and a LICENSE file and iterate on the README until you realize "oh shit this is something I can do". Then do it. This project still needs some work, but for an MVP, its actually done. And now I can dive in the deep end of trying to actually make it easy to setup on a fresh PC. Or dive into modern android development and server syncing...
-      </p>
+      <p>For the zero people reading, grab a beer and outline your project.
+      Full through. Think about the how, then write it down. Don&#39;t worry
+      about getting in the weeds of how to write a manfile, thats what is fun
+      about programming. I thought I botched my debian/sid environment
+      uninstalling and reinstalling a notification daemon. Infact I think its
+      caused me to take a stance on the whole systemd thing. Either way, start
+      a private repo (they&#39;re free now) write a README and a LICENSE file
+      and iterate on the README until you realize &quot;oh shit this is
+      something I can do&quot;. Then do it. This project still needs some work,
+      but for an MVP, its actually done. And now I can dive in the deep end of
+      trying to actually make it easy to setup on a fresh PC. Or dive into
+      modern android development and server syncing...</p>
     </article>
     <div id='footer'>
       <i>February 17, 2019</i>
