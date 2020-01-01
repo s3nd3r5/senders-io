@@ -40,6 +40,20 @@ code.inline {
   padding: 2px 2px;
 }
 
+.scaled-half {
+  display:inline;
+}
+.scaled-half > img {
+  width: 25%;
+  height: 25%;
+}
+.scaled-half:hover > img {
+  width: 125%;
+  height: 125%;
+}
+
 #wishlist { margin: 2% }
 #wishlist table thead td { border-bottom: 1px solid #aaa }
 #wishlist table tbody td { border-bottom: 2px dotted #aaa }
+
+#tutorial { margin: 2% }
