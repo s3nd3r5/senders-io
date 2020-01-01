@@ -7,8 +7,35 @@
     <title> Java Setup for Windows </title>
   </head>
   <body id="tutorial">
-    <article>
-      <h1> Installing Java </h1>
+    <h1>Java Setup - Windows</h1>
+    <div id="toc">
+      <h2>Table of contents</h2>
+      <ol>
+        <li><a href="#InstallingJava">Installing Java</a>
+          <ol>
+            <li><a href="#InstallingJava">Downloading the JDK</a></li>
+            <li><a href="#InstallingJavaEnv">Setting up your environment</a></li>
+          </ol>
+        </li>
+        <li><a href="#IntelliJSetup">Setting up IntelliJ Community Edition</a>
+          <ol>
+            <li><a href="#IntelliJSetup">Why IntelliJ</a></li>
+            <li><a href="#IntelliJSetupDownload">Downloading</a></li>
+          </ol>
+        </li>
+        <li><a href="#UsingIntelliJ">Using IntelliJ</a>
+          <ol>
+            <li><a href="#UsingIntelliJPrjCreate">Creating a project</a></li>
+            <li><a href="#UsingIntelliJClassCreate">Creating a class</a></li>
+            <li><a href="#UsingIntelliJRun">Running your program</a></li>
+            <li><a href="#UsingIntelliJDebug">Debugging your program</a></li>
+          </ol>
+        </li>
+        <li><a href="#help">Help</a></li>
+      </ol>
+    </div>
+    <article id="main">
+      <h1 id="InstallingJava"> Installing Java </h1>
       <p> To install Java you need to install the Java Development Kit (JDK). It can be downloaded from here: <a href="https://jdk.java.net/13">https://jdk.java.net/13</a></p>
       <p>You will want to select the zip download for Windows.
         <br/>
@@ -23,7 +50,7 @@
         <p>
         When I did this myself, it unzipped into a folder <code class="inline">jdk-13.0.1</code>. By the end you should have the following folder structure: <code class='inline'>C:\Program Files\Java\jdk-13.0.1</code>
       </p>
-      <h2> Setting up your environment </h2>
+      <h2 id="InstallingJavaEnv"> Setting up your environment </h2>
       <p>
       In order to make the JDK discoverable by your programs you need to add the JDK folder to your PATH environment varible. This is best done by first setting up a varible for the java directory <code class='inline'>JAVA_HOME</code> that points directly to the directory you copied the unzipped files into.</p>
       <br/>
@@ -36,19 +63,19 @@
       <span class='scaled-half'><img src='/imgs/java-setup/ScreenShot-JavaInstall-4.PNG'/></span>
       <br/><i>Hover to zoom</i>
       <p> Optionally, if you want to test that this worked, you can open up the command prompt (or powershell) by opening the start menu and typing/looking for cmd.exe. Then you can type <code class='inline'>java -version</code> which will output the version and some additional information. You should see <code class='inline'>java version 13.0.1</code>.</p>
-      <h1> IntelliJ Community Edition </h1>
+      <h1 id="IntelliJSetup"> IntelliJ Community Edition </h1>
       <p>I recommend using IntelliJ Community Edition instead of Eclipse. They're both open source but I use IntelliJ at my job daily and its a fantastic, out of the box editor. Where Eclipse requires a lot more setup steps and plugins to get it to be "complete". 
       Feature wise they do the same things, so everything they do in Udemy via Eclipse should work in IntelliJ. </p>
-      <h2> Downloading </h2>
+      <h2 id="IntelliJSetupDownload"> Downloading </h2>
       <p> To Download go to <a href="https://www.jetbrains.com/idea/download/#section=windows">www.jetbrians.com/idea/download</a> and click the Exe download for community edition. </p>
       <br/>
       <span class="scaled-half"><img src='/imgs/java-setup/ScreenShot-JavaInstall-5.PNG' /></span>
       <br/> <i> Hover to zoom </i>
       <p> Once the download is complete you can run the installer. You should select your theme, then just use the "Install defaults" option at the bottom, or just Next through the rest of setup, as you shouldn't need any additional plugins. And if you do they all can be installed later </p>
       <p><b> You're Done! You can start Udemy now just ignoring their install/setup instructions. I have some additional steps below to help verify everything works and do some basic operatoins in IntelliJ (Create a Project, Create a class, Run/Debug) but you can refer back to here once you get there in Udemy </b></p>
-      <h1> Using IntelliJ </h1>
+      <h1 id="UsingIntelliJ"> Using IntelliJ </h1>
       <p> Jetbrains actually has a whole <a href="https://www.jetbrains.com/help/idea/guided-tour-around-the-user-interface.html">FAQ/Tutorial section</a> that can help you with any questions too. But here is a brief overview of the core functions of IntelliJ</p>
-      <h2> Creating a project </h2>
+      <h2 id="UsingIntelliJPrjCreate"> Creating a project </h2>
       <p> When you first open IntelliJ it shows a splash screen where you can open an existing project or create a new one. You will at first want to create a new project. </p>
       <br/>
       <span class='scaled-half'><img src='/imgs/java-setup/ScreenShot-JavaInstall-6.PNG' /></span>
@@ -66,7 +93,7 @@
       <br/>
       <span class='scaled-half'><img src='/imgs/java-setup/ScreenShot-JavaInstall-9.PNG'/></span>
       <br/><i>Hover to zoom</i>
-      <h2> Creating a class </h2>
+      <h2 id="UsingIntelliJClassCreate"> Creating a class </h2>
       <p> To create a class in IntelliJ you should expand the projects menu on th left side and right click the <code class='inline'>src</code> folder. You then select "create class". This will add it directly into your src folder.</p>
       <br/>
       <span class='scaled-half'><img src='/imgs/java-setup/ScreenShot-JavaInstall-10.PNG'/></span>
@@ -75,17 +102,17 @@
       <br/>
       <span class='scaled-half'><img src='/imgs/java-setup/ScreenShot-JavaInstall-11.PNG'/></span>
       <br/><i>Hover to zoom</i>
-      <h2> Running a Program  </h2>
+      <h2 id="UsingIntelliJRun"> Running a Program  </h2>
       <p> Java code is executed from the main method <code class='inline'>public static void main(String[] args)</code>. You can run your main method by either right clicking within it and selecting run. Or when the file containing your main method is open using the Run button at the top right of the editor. </p>
       <br/>
       <span class='scaled-half'><img src='/imgs/java-setup/ScreenShot-JavaInstall-12.PNG'/></span>
       <br/><i>Hover to zoom</i>
-      <h2> Debugging a Program  </h2>
+      <h2 id="UsingIntelliJDebug"> Debugging a Program  </h2>
       <p> To debug you can set breakpoints in your code by selecting the left hand side by the line numbers. This will add a red dot which tells the program to pause executing when it reaches the code at that line. To do this you need to run in debug mode (rather than plain run mode) by right clicking your main method and choosing Debug, or by using the debug icon at the top right of the editor window. </p>
       <br/>
       <span class='scaled-half'><img src='/imgs/java-setup/ScreenShot-JavaInstall-13.PNG'/></span>
       <br/><i>Hover to zoom</i>
-      <h1> Additional Help </h1>
+      <h1 id="help"> Additional Help </h1>
       <p> If you need any help at all feel free to text or email. If its a code issue, either a screenshot of the code or the code itself will help! </p>
     </article>
   </body>
