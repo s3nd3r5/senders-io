@@ -28,6 +28,10 @@ html,body { margin: 0; font-family: monospace; }
   float:right;
 }
 
+article .footer {
+  font-size: 0.5em;
+  float:right;
+}
 code {
   font-family: monospace;
   background-color: #eee;
