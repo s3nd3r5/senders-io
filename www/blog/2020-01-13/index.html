@@ -24,17 +24,17 @@
       command. I figured I could it could just be a simple bash script that
       recalls your bash-history and appends it to a file, all things that are
       incredibly easy to do... or so I thought.</p>
-      <h2>Look before you leap</h2>
+      <h3>Look before you leap</h3>
       <p>This article is a reminder to myself to test the core functionality
       first, before decorating your program/script with all those bells and
       whistles. While I did learn a lot in the process it is always a good to
       check the basics first.</p>
-      <h2>What went right</h2>
+      <h3>What went right</h3>
       <p>I actually ended up learning a lot during the development of the
       (never finished) tool. I had never used <code>getopts</code> inside a
       script before, which turned out to be extremely intuitive. That was all
       that went right...</p>
-      <h2>What went wrong</h2>
+      <h3>What went wrong</h3>
       <p>Literally, everything else that could&#39;ve went wrong did. The
       &quot;project&quot; was a single bash script roughly 160 lines long
       before I found out it wouldn&#39;t work. It was a series of flags that
@@ -45,7 +45,7 @@
       when writing. I tried to allow it so you could default an action to make
       the CLI intuitive which lead to a messy set of if/elses and switch
       cases.</p>
-      <h3>You can&#39;t access un-committed bash history</h3>
+      <h4>You can&#39;t access un-committed bash history</h4>
       <p>History command in a bash shell commits the history at the end of the
       session. This makes sense once you know this, there are a lot of reasons
       saving the commands to file after every execution is probably not the
@@ -54,7 +54,7 @@
       remember I had to add something to my bash_profile before it would work.
       I wanted something I could just copy onto a new machine and have access
       to its functionality.</p>
-      <h2>Lesson learned</h2>
+      <h3>Lesson learned</h3>
       <p>While developing a tool to help me remember things, I learned
       something I cannot forget: Test the core, simplest functionality first.
       Before you do anything validate what you&#39;re trying to do will work.
@@ -62,8 +62,7 @@
       can&#39;t do the basics, there is no point.</p>
     </article>
     <div id='footer'>
-      Note: This entry ended up getting rewritten and posted on 2020-02-17
-      instead. <i>January 17, 2020</i>
+      <i>Updated and finally posted February 16, 2020</li>
     </div>
   </div>
 </body>
