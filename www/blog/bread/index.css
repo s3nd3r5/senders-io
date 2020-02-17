@@ -1,0 +1,11 @@
+table.bake-info th, td {
+  border: 1px dotted #eee;
+}
+
+table.bake-info th {
+  background: #debfff;
+}
+
+table.bake-info td {
+  background: #fffdeb; 
+}
