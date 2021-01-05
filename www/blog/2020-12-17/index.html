@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.6.0">
+  <title>senders.io - Blog</title>
+  <link rel='stylesheet' type='text/css' href='/index.css'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <div id='header'>
+    <a class='title' href='/'>senders.io</a>
+    <nav>
+      <a href="/resume">Resume</a> <a href="/blog">Blog</a> <a href=
+      "https://github.com/s3nd3r5">Github</a>
+    </nav>
+  </div>
+  <div id='body'>
+    <article>
+      <h2>Manjaro Experiment</h2>
+      <p>After years on Debian, running i3, I decided to try out a more
+      traditional Linux setup, and take a stab at gaming on Linux. I chose
+      Manjaro for a few reasons:</p>
+      <ul>
+        <li>It&#39;s not Debian based (it&#39;s arch btw /s)</li>
+        <li>It&#39;s still on Systemd so I won&#39;t lose that familiarity</li>
+        <li>For gaming it comes with pretty up to date drivers and setup for
+        running Steam games</li>
+        <li>It has a KDE installation which is what I wanted to run</li>
+      </ul>
+      <h3>Why &quot;not Debian&quot;</h3>
+      <p>Debian is home for me. I have used it for years on both work machines,
+      servers, personal desktop. But it comes with its own quirks. Starters - I
+      am running base Debian, not a Debian based system, which generally means
+      some packages are out of date. To get around this I run Sid/Unstable.
+      This hasn&#39;t been a particular issue, but sometimes there are version
+      conflicts and other just nuisances and no real <i>easy</i> way to get
+      every package in the proper version configuration. This was a particular
+      pain-point with getting Steam (nonfree too which adds another layer of
+      configurations) Wine and a few other packages all set up. Plus
+      32-bit!</p>
+      <h4>i3</h4>
+      <p>I have been using i3 as my window manager and without really any other
+      desktop environment programs. My login is the typical tty debian login.
+      But running i3 and then having windows appear, especially game windows
+      which can be tempermental, getting tiled to have to break it out again is
+      just a hassle. While I could&#39;ve gone with another Debian base running
+      a proper desktop environment + window manager I figured that&#39;d be
+      boring and I&#39;d just be trying out the programs and not the Linux,
+      which is half the fun.</p>
+      <p>That being said. i3 <i>is</i> Linux for me. Being able to just move
+      between windows with a macro and every bit of it just being intutive
+      (after you&#39;ve learned!) is a productivity booster. Which is why I
+      still use it on my work machine, and can&#39;t see myself ever switching
+      off.</p>
+      <h3>KDE</h3>
+      <p>I&#39;ve used Gnome and XFCE as desktop environments before, and
+      they&#39;re fine, but I&#39;ve always like the customability,
+      flexibility, and polished look of KDE.</p>
+      <h4>Setting up KDE for an i3 addict</h4>
+      <p>By default KDE isn&#39;t really too hard to &quot;get used to&quot;
+      since it feels like any other OS, especially a windows setup. But the
+      main thing I needed to change is the <code class=
+      'inline'>meta+&lt;key&gt;</code> commands.</p>
+      <ul>
+        <li>Remapping the Virtual Desktop changes</li>
+        <li>Remapping the KWin window focuses</li>
+        <li>Remapping the KWin move to desktop</li>
+        <li>Installing DMenu</li>
+        <li>Shrinking the &quot;start bar&quot; panel</li>
+        <li>Removing Pager</li>
+        <li>Changing Task Manger to Window List</li>
+        <li>Configuring Desktop Layout to &quot;Desktop&quot; (this removes the
+        icons)</li>
+      </ul>Doing this helped make me feel at home so far, and not have to
+      retrain my brain.
+      <h4>Some of the key remappings</h4>
+      <p>Setting up the KWin window keymapping was really what made me feel at
+      home. For the first few hours with it, I felt as limited in my
+      productivity as with Windows. KDE and Windows share by default a lot of
+      the same keymappings around window manipulation and virtual desktop
+      changes. <b>Switch to desktop N</b> setting this as <code class=
+      'inline'>meta+&lt;N&gt;</code> where N is the dekstop 1-10 (0). <b>Switch
+      to Window to the Left/Right/Up/Down</b> This was one I was nervous
+      wouldn&#39;t exist as a keybind. But What was <code class=
+      'inline'>meta+alt+&lt;dir&gt;</code> was mapped to without the alt. This
+      allowed for the very annoying lack of ability to just jump between
+      browser and terminal, or especially two separate terminals. <b>Quit
+      Window</b> with <code class='inline'>meta+shift+Q</code>, <b>Tile
+      Window</b> command to use the Shift key rather, especially as
+      <code class='inline'>meta+&lt;dir&gt;</code> was overwritten by the focus
+      switching.</p>
+      <h3>Manjaro</h3>
+      <p>So I went with KDE Manjaro. Manjaro aims for the gaming desktop
+      experience. Arch is new for me, so I feel that would be something to
+      adjust to and learn.</p>
+      <h2>Gaming</h2>
+      <p>It has only been a day with it as I am writing. But I was able to get
+      a fair amount of the fighting games I wanted to play work.</p>
+      <h3>Proton + Steam</h3>
+      <p>So far my main focus has been running the fighting games I noodle
+      around on in Steam. To do this I launched Steam and installed the proton
+      and setup to run all games, regardless of compatibility. None of the
+      games I hoped to run had worked this way. I then opt&#39;d into the beta
+      for Proton running the experimental builds, which should generally have
+      the more up-to-date tunings for games. With this setup I was able to get
+      Soulcalibur VI to work. Battle for the Grid and Dragon Ball FighterZ both
+      had launching issues. So I looked around and found <a href=
+      "https://github.com/GloriousEggroll/proton-ge-custom/">Proton Ge
+      Custom</a> which is a custom fork of Proton that contains custom settings
+      and tweeks for various games. One of which is Battle For the Grid which
+      is how I found it. Using this I was able to play every game except Dragon
+      Ball FighterZ! A callout for Dead or Alive 6 which is performing
+      questionably. It can run and isn&#39;t actually too bad, but in windowed
+      or borderless it stutters and drops frames.</p>
+      <h4>Other issues</h4>
+      <p>Even on Windows there are issues with some games and your standard
+      configurations. Disabling Steam Overlay and adjusting the Steam Input
+      Setting on some games helped get some games working.</p>
+      <h3>Conclusion</h3>
+      <p>Gaming on Linux is still not great. Its MILES ahead of where it was
+      even a few years ago when I setup this PC. And I think it will take some
+      adjustment getting a feel for an i3less workflow.</p>
+      <h2>Update!</h2>
+      <h3>NTFS mounting</h3>
+      <p>Update! I got DOA and a few other games to run a bit smoother by
+      remounting my NTFS drives properly. I ended up using the following for my
+      /etc/fstab configuraiton for my NTFS drives: <code>UUID=&lt;drive-id&gt;
+      /mount/path ntfs
+      uid=1000,gid=1000,rw,user,exec,async,locale=en_US.utf8,umask=000 0
+      0</code> I had noticed that both steam and mount.ntfs was running at
+      20-40% CPU while not really doing anything. And then upwards of 80%
+      during gameplay.</p>
+      <h3>i3 Compatibility</h3>
+      <p>As I spend more time using the OS I made a few more adjustments:</p>
+      <ul>
+        <li>Removed everything except the Clock and System Tray.</li>
+        <li>I added KRunner to <code class='inline'>meta+space</code> to ease
+        running KDE specific programs that I can&#39;t be bothered to memorize
+        the name of</li>
+        <li>Back and forth on forcing &quot;No border&quot; on all windows.
+        Part of the reason I moved away from i3 was so that I had better
+        floating window management. And doing this would basically put me in an
+        equally hard to manage system for floating game windows. So until I
+        find a plugin that makes small taskbar/borders for the windows I&#39;ll
+        be sticking with the default.</li>
+        <li>On Manjaro at least: UNINSTALL mesa-demos! <code class=
+        'inline'>sudo pacman -R lib32mesa-demos mesa-demos</code> This package
+        had the annoying &quot;fire&quot; demo which made dmenu opening firefox
+        a pain in the ass.</li>
+      </ul>The biggest difference was removing the Application Launcher from
+      the main panel. Having it there really felt like a crutch for running
+      programs. It is equal I would say to running apps as dmenu via
+      <code class='inline'>meta+d</code> vs just <code class=
+      'inline'>meta</code> to launch the Application Launcher. However, the
+      bulky UI of it, even using just Window List, took away from the look/feel
+      I was going for.
+    </article>
+    <div id='footer'>
+      <i>Posted: Decemeber 17, 2020. Update: December 19, 2020</i>
+    </div>
+  </div>
+</body>
+</html>
