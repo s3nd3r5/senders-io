@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.6.0">
+  <title>senders.io - Blog</title>
+  <link rel='stylesheet' type='text/css' href='/index.css'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <div id='header'>
+    <a class='title' href='/'>senders.io</a>
+    <nav>
+      <a href="/resume">Resume</a> <a href="/blog">Blog</a> <a href=
+      "https://github.com/s3nd3r5">Github</a>
+    </nav>
+  </div>
+  <div id='body'>
+    <article>
+      <h2>Manjaro Follow-up - Breaking things!</h2>
+      <p>I wanted to write a quick follow-up covering how I managed to break,
+      and then recover, everything when I went to remove my old debian
+      partition.</p>
+      <h3>Recap</h3>
+      <p>To recap: I installed Manjaro alongside a Debian/sid and Windows 10
+      install. Each of those OSs were on their own SSDs. I went from a 128SSD
+      with Windows installed, to adding a 256 installing Debian. Years later I
+      split the Debian SSD into two parts - installing Manjaro on my new slice.
+      Since my last update I have been playing around with Manjaro and having
+      made my i3 keybindings for Kwin I&#39;ve been pretty happy. But then I
+      started breaking things.</p>
+      <h3>Break stuff</h3>
+      <p>I broke my Manjaro by updating my Debian (apparently). To be honest
+      this is the one part I don&#39;t fully understand <i>why</i> it happened.
+      From what I could find online I didn&#39;t setup my system to handle two
+      separate Linux OS installs. But I was no longer able to boot directly
+      into Manjaro without using the initramfs failover boot option. I only
+      updated my Debian install because I was debugging something on my work
+      install, which both run Debian/sid. (Otherwise I would&#39;ve used my
+      server which runs Debian/Stable). But considering I hadn&#39;t had any
+      need to boot back into Debian I decided to just get rid of it!</p>
+      <h3>GParted, Grub, Gotchas!</h3>
+      <p>I went in knowing I&#39;d have to fix my Grub since I&#39;d be
+      removing Debian, which was the OS that I configured when I first
+      dualbooted the machine, so I assumed they were linked somehow and I would
+      need to reinstall it. The process I followed was:</p>
+      <ul>
+        <li>Create a GParted Live USB</li>
+        <li>Launch GParted reconfigure my partitions</li>
+        <li>Open the terminal in the live USB and reinstall Grub</li>
+      </ul>The 3rd point being a bit of a &quot;rest of the owl&quot; I
+      wasn&#39;t sure what to expect. GParted thankfully warns you
+      &quot;you&#39;re probably going to break stuff see our FAQ&quot; which
+      had a section on reinstalling grub. Reading that the 3rd part became:
+      <ul>
+        <li>mount the linux OS</li>
+        <li>bind the live dirs that are needed: <code class='inline'>/dir /sys
+        /proc</code></li>
+        <li>chroot into the mounted folder</li>
+        <li>run <code class='inline'>grub-install &lt;device&gt;</code></li>
+      </ul>But what I failed to realize (stupidly in hindsight) was the
+      &quot;device&quot; is the Master Boot Record (MBR) device. So in my case
+      Windows or <code class="inline">/dev/sdb</code>. I had assumed it was the
+      device of the linux install so I tried that and got notified my EFI boot
+      directory didn&#39;t look like an EFI partition... and from here it was
+      rabbit holes.
+      <h3>Where is my EFI partition?</h3>
+      <p>I have a fairly old Windows 7 install that has been upgraded to
+      Windows 10 during this whole journey. I&#39;ve been meaning to reinstall
+      it (on a larger drive). But rather than having a few partitions on my
+      drive (typically having a boot partition) I just have the one (and a
+      recovery partition). Its marked as boot, and even mounted to <code class=
+      'inline'>/boot/efi</code> I found when I was able to boot into Manjaro
+      again. But it made no sense to me. If I needed an EFI partition, why was
+      my efi pointed to the root of my Windows C drive? The rabbit hole
+      consisted of:</p>
+      <ul>
+        <li>Creating a 200MB Fat32 Boot partition</li>
+        <li>Mounting that as my efi-directory</li>
+        <li>Reinstalling grub (again on my Linux device)</li>
+        <li>Eventually getting it to boot straight into Manjaro</li>
+        <li>Modifying my <code class='inline'>/etc/fstab</code> to mount my
+        boot/efi to the new partition (oops)</li>
+        <li>Repeating the above steps 5 times hoping something would be
+        different</li>
+        <li>Eventually finding in a forum that grub should be on the
+        MBR...</li>
+      </ul>
+      <h3>The Fix and Final Steps</h3>
+      <p>The fix was to basically follow the steps above but use the MBR:</p>
+      <ul>
+        <li>Boot GParted Live USB</li>
+        <li>Properly configure any partitions (this case delete the
+        &quot;EFI&quot; partition)</li>
+        <li>Mount the linux device</li>
+        <li>Bind the necessary live dirs to the linux mount</li>
+        <li>Run grub-install to the MBR device</li>
+        <li>Reboot</li>
+      </ul>It was that misunderstanding about the MBR that sent me on a path,
+      but now I at least feel semi-confident in changing around my OSs knowing
+      how to fix Grub. But what bout the Fstab?
+      <p>Like all true movie monsters, my stupidity came back for the final
+      scare. I booted into Manjaro, from Grub! to have it crash on me. It
+      couldn&#39;t mount one of the devices! The deleted partition! I was in
+      the recover shell and was able to modify the Fstab to point back to the
+      correct boot/efi device. (Thankfully I was familiar with Fstab to begin
+      with). But editing two files in a super-low-res terminal is not my idea
+      of fun (okay, maybe it is).</p>
+      <h3>Conclusion</h3>
+      <p>One of my new years resolutions was to learn more about my system. So
+      lighting a fire I had to put out was a great way to get some more
+      knowledge on maintence for grub/dualbooting.</p>
+    </article>
+    <div id='footer'>
+      <i>January 5, 2021</i>
+    </div>
+  </div>
+</body>
+</html>
