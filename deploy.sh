@@ -41,8 +41,7 @@ require_clean_work_tree
 
 echo "Updating version file"
 echo "Deployed on: $DATE" > www/version.txt
-
-aws s3 cp www s3://senders-io/ --recursive
+docker run --rm -it -v ${PWD}/www:/www:ro amazon/aws-cli s3 cp /www s3://senders.io/ --recursive
 echo "Deployed!"
 
 echo "Committing deploy"
