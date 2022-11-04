@@ -21,7 +21,7 @@ And you [check my discogs wantlist](https://www.discogs.com/wantlist?user=sender
 | Iron Maiden | Powerslave | ^ |
 | Iron Maiden | Brave New World | ^ |
 | Jimi Hendrix | Are You Experinced | [Discogs](https://www.discogs.com/artist/110593-Jimi-Hendrix) |
-| KANGA | KANGA (CD) | [Discogs](https://www.discogs.com/release/9368901-Kanga-Kanga) | 💖 |
+| KANGA | KANGA (CD) | [Discogs](https://www.discogs.com/release/9368901-Kanga-Kanga) |  |
 | KANGA | Eternal Daughter (CD) | [Bandcamp](https://kanga.bandcamp.com/album/eternal-daughter) | 💖 |
 | KANGA | You and I Will Never Die (CD) | [Bandcamp](https://kanga.bandcamp.com/album/you-and-i-will-never-die) | 💖 |
 | Khemmis | Absolution | [LP Merch Site](https://www.20buckspin.com/collections/khemmis), [Discogs](https://www.discogs.com/artist/4497438-Khemmis) | 💖 |
