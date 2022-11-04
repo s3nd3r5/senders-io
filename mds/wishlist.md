@@ -25,7 +25,7 @@ And you [check my discogs wantlist](https://www.discogs.com/wantlist?user=sender
 | KANGA | Eternal Daughter (CD) | [Bandcamp](https://kanga.bandcamp.com/album/eternal-daughter) | 💖 |
 | KANGA | You and I Will Never Die (CD) | [Bandcamp](https://kanga.bandcamp.com/album/you-and-i-will-never-die) | 💖 |
 | Khemmis | Absolution | [LP Merch Site](https://www.20buckspin.com/collections/khemmis), [Discogs](https://www.discogs.com/artist/4497438-Khemmis) | 💖 |
-| Khemmis | Hunted | ^ | 💖 |
+| Khemmis | Haunted | ^ | 💖 |
 | Khemmis | Desolation | ^ | 💖 |
 | Raised by Swans | Codes And Secret Longing (CD) | [Discogs](https://www.discogs.com/release/1173259-Raised-By-Swans-Codes-And-Secret-Longing) | |
 | Raised By Swans | Öxnadalur (CD) | [Bandcamp](https://raisedbyswans6.bandcamp.com/album/xnadalur) | 💖 |
