@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.6.0">
+  <meta charset="utf-8">
+  <link rel='stylesheet' type='text/css' href='/index.css'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Senders&#39; Wishlist</title>
+  <style>
+  img { border: 2px solid #eee; }
+  body {
+    width: 800px;
+  }
+  .small { font-size: 0.75em; }
+  </style>
+</head>
+<body id='wishlist'>
+  <h1>Warcraft 3 Setup Guide</h1>
+  <h2 id='gamesetup'>Game Setup</h2>
+  <h3 id='download'>Downloading the game</h3>Download the <code class=
+  'inline'>wc3.zip</code>. You can download it from <a href=
+  'https://cdn.senders.io/blobs/wc3.zip' target=
+  '_blank'>https://cdn.senders.io/blobs/wc3.zip</a>
+  <h3 id='unzip'>Extract the game contents</h3>Unzip the game contents. If you
+  can&#39;t unzip it you can download 7Zip from: <a href=
+  'https://www.7-zip.org/a/7z1900-x64.exe'>https://www.7-zip.org/</a>.
+  <div>
+    <span class='scaled-half'><img src='/imgs/wc3/unzip.png' alt=
+    '7Zip Context Menu'></span><br>
+    <i class='small'>Hover to Zoom</i>
+  </div>
+  <div>
+    <span class='scaled-half'><img src='/imgs/wc3/unzipped.png' alt=
+    'Unzipped Folder Contents'></span><br>
+    <i class='small'>Hover to Zoom</i>
+  </div>
+  <h3 id='launch'>Launch the game</h3>Open the folder you unzipped into and
+  open <code class='inline'>Warcarft III 1.31.1\x86_64\Warcraft III.exe</code>.
+  This will launch the game.
+  <div>
+    <span class='scaled-half'><img src='/imgs/wc3/launch.png' alt=
+    'Game Launcher Exe'></span><br>
+    <i class='small'>Hover to Zoom</i>
+  </div>
+  <h3 id='cdkey'>Active your CD Key</h3>The game will prompt with a launcher
+  for battle.net or CD Key. Choose CD Key and type in the provided CD Key. Your
+  CD Key can be found in <code class='inline'>CDKEYS.jpg</code> back in the
+  main folder.
+  <div>
+    <span class='scaled-half'><img src='/imgs/wc3/cdkey.png' alt=
+    'CD Key file location'></span><br>
+    <i class='small'>Hover to Zoom</i>
+  </div>
+  <h4>Warning! Do Not Update</h4>Once you launch the game it will prompt you to
+  update: <strong>DO NOT UPDATE THE GAME</strong> . After clicking No it may
+  ask you again on launch again (sometimes). Just keep clicking NO.
+  <h3 id='setupdone'>Done!</h3>Now you&#39;ve setup Warcraft 3. Next you need
+  to setup a virtual LAN
+  <h2 id='lansetup'>Setting up a Virtual Lan</h2>In this section I&#39;ll show
+  a guide for setting up <a href='https://www.zerotier.com/'>ZeroTier</a>.
+  <h3 id='adminnotice'>Before you continue</h3>Only one person
+  <strong>needs</strong> to setup a network. Everyon else can join an existing
+  network through the network&#39;s creator (<strong>admin</strong>). And once
+  you&#39;ve been authorized by the admin you can join/unjoin as you please.
+  The admin doesn&#39;t even need to be in the same game / online.
+  <h3>Admin | Network Setup</h3>If you want to be the network admin you can
+  create a network by first creating an account with ZeroTier. You&#39;ll need
+  to supply a verifiable email but that is it. Here is a quick summary of how
+  to setup. A full guide can be found at <a href=
+  'https://zerotier.atlassian.net/wiki/spaces/SD/pages/8454145/Getting+Started+with+ZeroTier'>
+  Zero Tiers own setup guide</a>
+  <div>
+    <span class='scaled-half'><img src='/imgs/wc3/create-network.png' alt=
+    'Create a Network'></span><br>
+    <i class='small'>Hover to Zoom</i>
+  </div>
+  <h4>Your Network ID</h4>Your network ID will be present on the network page.
+  The example netowrk here is: <code class='inline'>17d709436c634b2b</code>.
+  You will share this with the members.
+  <h4>Admin | Network Settings</h4>You shouldn&#39;t have to do anything
+  custom, just authorize the users who join your network. This can be done by
+  either adding them directly, or checking the authorize box. You can add them
+  from the settings menu at the bottom:
+  <div>
+    <span class='scaled-half'><img src='/imgs/wc3/add-remove.png' alt=
+    'Add remove users section'></span><br>
+    <i class='small'>Hover to Zoom</i>
+  </div>
+  <h3>Member | Download</h3><i>Note Admins must also join their own
+  network!</i> Member&#39;s first must download the application: <a href=
+  'https://www.zerotier.com/download/'>Zero Tier 1</a>.
+  <h3>Member | ZeroTier UI</h3>The ZeroTier UI is just a system-tray icon. Just
+  right click to perfom any of the actions listed below. (It&#39;s the icon
+  that shares the icon from the website!)
+  <div>
+    <span class='scaled-half'><img src='/imgs/wc3/tray.png' alt=
+    'ZeroTier Tray Icon'></span><br>
+    <i class='small'>Hover to Zoom</i>
+  </div>
+  <div>
+    <span class='scaled-half'><img src='/imgs/wc3/menu.png' alt=
+    'ZeroTier Tray Menu'></span><br>
+    <i class='small'>Hover to Zoom</i>
+  </div>You can right click the tray-icon to open the menu. Here you will see
+  your Node Id. Example: <code class='inline'>Node ID: 2d213b67f2</code>
+  <h4>Member | Add network</h4>To join simply paste the network ID in the form.
+  You can get the ID from the Network Admin.
+  <div>
+    <span class='scaled-half'><img src='/imgs/wc3/join.png' alt=
+    'Join prompt'></span><br>
+    <i class='small'>Hover to Zoom</i>
+  </div>
+  <h4>Admin | Authorize the Member</h4>The Admin will then need your
+  <strong>Node ID</strong> and will authorize you in their network settings.
+  <div>
+    <span class='scaled-half'><img src='/imgs/wc3/members-view.png' alt=
+    'Members View'></span><br>
+    <i class='small'>Hover to Zoom</i>
+  </div>
+  <h3>Member | Reboot</h3>Now that you&#39;ve connected and setup I recommend
+  rebooting here. You can also reboot upon installation too to be safe.
+  <h3>Member | Verify connectivity</h3>You can open the menu and click
+  &quot;Show Network&quot; which will show you your connected networks. You
+  should see <code class='inline'>Status: OK</code>. You can click the connect
+  checkbox here to connect/disconnect. Or click the network from the menu
+  directly.
+  <div>
+    <span class='scaled-half'><img src='/imgs/wc3/connection.png' alt=
+    'Connection View'><br>
+    <i class='small'>Hover to Zoom</i></span>
+  </div>
+  <h3><span class='scaled-half'>Admin | Verify everyone is
+  connected</span></h3><span class='scaled-half'>You can verify the connected
+  nodes by looking at the network view under Members. You should see Last Seen
+  &quot;ONLINE&quot; and their Physical IP - this will mean they&#39;re
+  connected successfully. You can add names and descriptions to help manage who
+  is who in case someone loses connectivity.</span>
+  <h2><span class='scaled-half'>Creating a LAN Game</span></h2><span class=
+  'scaled-half'>At this point you should be able to create a LAN game. It will
+  ask you to install Bonjour services. Click yes. The game may hang for a bit
+  while this happens, that is normal. Authorize the network firewall popup if
+  it does.</span>
+  <h2><span class='scaled-half'>Troubleshooting</span></h2><span class=
+  'scaled-half'>The network Admin can troubleshoot any connectivity issues by
+  checking if the Member&#39;s are present in their network settings.</span>
+  <h3><span class='scaled-half'>Status:
+  Request_Configuration</span></h3><span class='scaled-half'>If you are stuck
+  in this status you can delete the network. Reboot. Then re-add the network
+  and have the admin re-authorize you if necessary. This may take a few minutes
+  before you&#39;re IP appears in the network settings for the admin.</span>
+</body>
+</html>

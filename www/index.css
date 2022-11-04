@@ -52,8 +52,8 @@ code.inline {
   height: 25%;
 }
 .scaled-half:hover > img {
-  width: 125%;
-  height: 125%;
+  width: auto;
+  height: auto;
 }
 
 #wishlist { margin: 2% }

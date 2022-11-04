@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.6.0">
+  <meta charset="utf-8">
+  <title>senders.io - Dice Roller</title>
+  <link rel="stylesheet" type="text/css" href="/index.css">
+  <link rel="stylesheet" type="text/css" href="./index.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <article id="body">
+    <h1>Dice Roller</h1>
+    <p>Set your number of dice and press roll. The output tables will display
+    the number of count of each result rolled.</p>
+    <div class='form'>
+      <input type='number' min="1" max="999" id="numdice" value="4">
+      <button id='rollbtn' onclick="roll()">Roll</button>
+    </div>
+    <h2>Roll Results</h2>
+    <table id='results' class='output'>
+      <thead>
+        <tr>
+          <th>Dice Face</th>
+          <th>Num Rolled</th>
+        </tr>
+      </thead>
+      <tbody id='resbody'></tbody>
+    </table>
+    <h2>Roll History</h2>
+    <table id='history' class='output'>
+      <thead>
+        <tr>
+          <th class='num'>#</th>
+          <th colspan="2">cnt</th>
+          <th>1s</th>
+          <th>2s</th>
+          <th>3s</th>
+          <th>4s</th>
+          <th>5s</th>
+          <th>6s</th>
+        </tr>
+      </thead>
+      <tbody id='histbody'></tbody>
+    </table>
+  </article>
+  <article class='footer'>
+    <i>This page uses basic javascript. Nothing external.</i>
+  </article>
+  <script>
+      var numRolls = 0;
+
+      function roll() {
+        numRolls += 1;
+        var nI = document.getElementById("numdice");
+        var numDice = nI.value;
+        var results = {};
+        results[1] = 0;
+        results[2] = 0;
+        results[3] = 0;
+        results[4] = 0;
+        results[5] = 0;
+        results[6] = 0;
+        for (var i = 0; i < numDice; i++) { 
+          var r = Math.floor((Math.random() * 100) % 6) + 1;
+          results[r] += 1; 
+        }
+        display(results, numDice);
+      }
+
+      function display(res, numDice) {
+        var resBody = document.getElementById("resbody");
+        var histBody = document.getElementById("histbody");
+        resHTML = "";
+        histHTML = `<tr><td class='num'>${numRolls}</td><td colspan=2>${numDice}</td>`;
+        for (var i = 1; i <= 6; i++) {
+          resHTML += `<tr><td>${i}</td><td>${res[i]}</td></tr>`;
+          histHTML += `<td>${res[i]}</td>`;
+        }
+        histHTML += "</tr>";
+        histBody.innerHTML = histHTML + histBody.innerHTML;
+        resBody.innerHTML = resHTML;
+      }
+  </script>
+</body>
+</html>

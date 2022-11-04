@@ -1,0 +1,38 @@
+#numdice {
+  font-size: 2em;
+  width: 100px;
+  text-align: center;
+}
+
+#rollbtn {
+  font-size: 2em;
+  padding: 8px 32px;
+}
+
+.output tbody tr:nth-child(even) {
+  background-color: #e6e6e6;
+}
+
+#history {
+  min-width: 33%;
+}
+
+.num {
+  text-align: center;
+  padding: 0 4px;
+}
+
+tr th {
+  border-bottom: 1px dotted #444;
+}
+
+#history tr th:nth-child(2), #history tr td:nth-child(2) {
+  border-right: 1px solid #444;
+}
+
+.footer {
+  font-size: 0.5em;
+  text-align: center;
+  width: 100%;
+}
+
